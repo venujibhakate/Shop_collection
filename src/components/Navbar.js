@@ -7,7 +7,7 @@ class Navbar extends Component {
   return (
     <div>
       <AppBar position="static">
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="inherit" style={{textAlign:'center'}}>
             Products
           </Typography>
       </AppBar>

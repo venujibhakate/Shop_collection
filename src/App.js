@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import Product from "./components/Product";
-import TitleImage from "./components/TitleImage.jpg";
+import TitleImage from "../src/components/TitleImage.jpg";
 
 class App extends Component {
   state = {
@@ -24,9 +24,7 @@ class App extends Component {
       <div>
         <Navbar />
         <div className="container">
-          <h1>Ecommerce Shopping Cart Application</h1>
-          <hr />
-          <img src={TitleImage.jpg} style={{ height: "200px" }} alt="img" />
+          <img src={TitleImage} style={{ height: "200px",width:'100%' , marginTop:'2%'}} alt="img" />
           <div className="row">
             <Product product={this.state.products} />
           </div>
