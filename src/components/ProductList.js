@@ -11,6 +11,7 @@ class ProductList extends Component {
     super();
     this.state = {
       products: [],
+      details:[],
       cartItems:[]
     };
     this.handleChangeSort = this.handleChangeSort.bind(this);
@@ -23,7 +24,7 @@ class ProductList extends Component {
       "https://stageapi.ihaworld.com/v1/products"
     );
     console.log(response);
-    this.setState({ products: response.data.list });
+    this.setState({ products: response.data.list, details:response.data.customattributes});
   }
   handleChangeSort(e) {
     this.setState({ sort: e.target.value });
@@ -94,7 +95,7 @@ class ProductList extends Component {
               count={this.state.products.length}
             />
             <hr />
-            <Product product={this.state.products} handleAddToCard={this.handleAddToCart}/>
+            <Product product={this.state.products} details={this.state.details}handleAddToCard={this.handleAddToCart}/>
             </div>
             <div className="col-md-4">
               {/* <Cart cartItems={this.state.cartItems} handleRemoveFromCart={this.handleRemoveFromCart}/> */}
