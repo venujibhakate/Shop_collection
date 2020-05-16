@@ -1,52 +1,41 @@
-// import React, { Component } from 'react'
-
-// class Cart extends Component {
-//     render() {
-//         // const {cartItems} =  this.props;
-//         return (
-//         //     <div className="alert alert-info">
-//         //         {cartItems.length === 0 ? "Cart is Empty" : <div> you have {cartItems.lenght}}
-//         //         product in the cart.{cartItems.length > 0 &&
-//         //         <div>
-//         //             <ul>
-//         //                 {cartItems.map(item =>
-//         //                 <li>
-//         //                     <b>{item.title}</b>
-//         //                     REMOVE {item.count}
-//         //                     <button className="btn btn-primary"
-//         //                     onClick={(e) => this.handleRemoveFromCart(e,item)}>Remove
-//         //                     </button>
-//         //                 </li>
-//         //                 )}
-//         //             </ul>
-//         //             </div>
-//         //         }
-//         //     </div>
-//         //     </div>
-//         // )  )
-//         ) 
-//     }
-// }
-// export default Cart;
-
 import React, { Component } from 'react'
 
 export default class Cart extends Component {
-    render() {
-        return (
-            <div>
-                
-                {this.props.cart && this.props.cart.length > 0 && this.props.cart.map ((item,index) => 
+    constructor(){
+        super();
+        this.state={
+            "cartItems": []
+        }
+    }
 
-                {
-                    console.log("vv" , item)
-                    return(
-                        <div>
-                            <h1>{item.name}</h1>
-                           </div> 
-                    )
-                }
-                )}
+    componentWillMount(){
+       this.setState({cartItems: this.props.cart})
+    }
+
+    DeleteItem(i){
+        const items = this.state.cartItems;
+        items.splice(i, 1)
+        this.setState({cartItems: items})
+    }
+
+    render() {
+        // console.log("?>>>",this.state.cartItems);
+        return (
+            <div className="container cartItems">
+               { this.state.cartItems && this.state.cartItems.length > 0 && <div className="col-md-8 panel panel-primary">
+                    <div className="panel-heading text-center">Shopping Cart Items</div>
+                    <div className="panel-body">
+                        {this.state.cartItems && this.state.cartItems.length > 0 && this.state.cartItems.map ((item,i) => {
+                            return(
+                                <div className="card card-body" key={i}>
+                                    <span>{item.name}</span>
+                                    <span>{item.price}</span>
+                                    <span className="text-danger" style={{"cursor": "pointer"}} onClick={()=> this.DeleteItem(i)}>Delete</span>
+                                </div> 
+                            )}
+                        )}
+                    </div>
+                </div>}
             </div>
         )
     }

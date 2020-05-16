@@ -24,3 +24,7 @@ text-transform: uppercase;
 .shoppingCart{
   margin-left:90%;
 }
+.cartItems{
+  margin-left: 20%;
+  margin-top: 20px;
+}
