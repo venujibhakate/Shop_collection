@@ -21,3 +21,6 @@ text-transform: uppercase;
 .text-blue{
   color:var(--mainblue)
 }
+.shoppingCart{
+  margin-left:90%;
+}
