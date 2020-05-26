@@ -40,7 +40,7 @@ class Product extends Component {
 
         const dummyImg = "https://image.freepik.com/free-photo/female-friends-out-shopping-together_53876-25041.jpg"
         return (
-            <div> {
+            <div> <h1>Shopping</h1> {
                 < Cart cart = {
                     this.state.cart
                 } />
